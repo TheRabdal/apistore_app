@@ -25,7 +25,7 @@ class DashboardPage extends StatelessWidget {
           ),
           const SizedBox(height: 24.0),
           Text(
-            'Featured APIs',
+            'Fitur Pilihan',
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(height: 16.0),

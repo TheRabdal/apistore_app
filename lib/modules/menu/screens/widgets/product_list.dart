@@ -68,7 +68,7 @@ class ProductListState extends State<ProductList> {
                 onTap: () {
                   Navigator.pushNamed(
                     context,
-                    '/product-detail',
+                    ProductDetailPage.route,
                     arguments: product.id.toString(),
                   );
                 },

@@ -19,6 +19,10 @@ class RouteGenerator {
       case MainPage.route:
         final username = settings.arguments as String? ?? '';
         return pageRoute(MainPage(username: username));
+      
+      case ProductDetailPage.route:
+        final productId = settings.arguments as String;
+        return pageRoute(ProductDetailPage(productId: productId));
 
       default:
         return pageRoute(const SplashPage());

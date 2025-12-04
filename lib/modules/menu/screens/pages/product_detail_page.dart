@@ -1,6 +1,7 @@
 import 'package:apistore_app/packages/packages.dart';
 
 class ProductDetailPage extends StatelessWidget {
+  static const String route = '/product-detail';
   final String productId;
 
   const ProductDetailPage({super.key, required this.productId});

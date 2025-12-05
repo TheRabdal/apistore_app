@@ -1,7 +1,7 @@
 import 'package:apistore_app/packages/packages.dart';
 
 class Product extends Equatable {
-  Product({
+  const Product({
     required this.id,
     required this.title,
     required this.price,
@@ -69,7 +69,7 @@ class Product extends Equatable {
 }
 
 class Rating extends Equatable {
-  Rating({required this.rate, required this.count});
+  const Rating({required this.rate, required this.count});
 
   final double? rate;
   final int? count;

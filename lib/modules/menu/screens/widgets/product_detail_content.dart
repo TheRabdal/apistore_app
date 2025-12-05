@@ -12,24 +12,24 @@ class ProductDetailContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.network(product.image),
+          Image.network(product.image ?? 'https://via.placeholder.com/150'),
           const SizedBox(height: 16.0),
           Text(
-            product.title,
+            product.title ?? '',
             style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8.0),
           Text(
-            '\$${product.price.toStringAsFixed(2)}',
+            '\$${(product.price ?? 0.0).toStringAsFixed(2)}',
             style: const TextStyle(fontSize: 20, color: Colors.green),
           ),
           const SizedBox(height: 8.0),
           Text(
-            product.category,
+            product.category ?? '',
             style: const TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
           ),
           const SizedBox(height: 16.0),
-          Text(product.description, style: const TextStyle(fontSize: 16)),
+          Text(product.description ?? '', style: const TextStyle(fontSize: 16)),
           const SizedBox(height: 8.0),
           if (product.rating != null)
             Text(

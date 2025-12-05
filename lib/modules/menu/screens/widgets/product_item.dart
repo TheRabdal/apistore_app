@@ -32,7 +32,7 @@ class ProductItem extends StatelessWidget {
             child: ClipRRect(
               borderRadius: const BorderRadius.vertical(top: Radius.circular(12.0)),
               child: Image.network(
-                product.image,
+                product.image ?? 'https://via.placeholder.com/150',
                 fit: BoxFit.cover,
                 width: double.infinity,
               ),
@@ -41,7 +41,7 @@ class ProductItem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              product.title,
+              product.title ?? '',
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(fontWeight: FontWeight.bold),
@@ -50,7 +50,7 @@ class ProductItem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
-              '\$${product.price.toStringAsFixed(2)}',
+              '\$${(product.price ?? 0.0).toStringAsFixed(2)}',
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.green,

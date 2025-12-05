@@ -24,7 +24,7 @@ class ProductListState extends State<ProductList> {
     final query = _searchController.text.toLowerCase();
     setState(() {
       _filteredProducts = widget.products.where((product) {
-        return product.title.toLowerCase().contains(query);
+        return (product.title ?? '').toLowerCase().contains(query);
       }).toList();
     });
   }
@@ -93,7 +93,7 @@ class ProductListState extends State<ProductList> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.network(
-                            product.image,
+                            product.image ?? 'https://via.placeholder.com/150',
                             width: 80,
                             height: 80,
                             fit: BoxFit.cover,
@@ -105,7 +105,7 @@ class ProductListState extends State<ProductList> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                product.title,
+                                product.title ?? '',
                                 style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
@@ -115,7 +115,7 @@ class ProductListState extends State<ProductList> {
                               ),
                               const SizedBox(height: 8.0),
                               Text(
-                                '\$${product.price.toStringAsFixed(2)}',
+                                '\$${(product.price ?? 0.0).toStringAsFixed(2)}',
                                 style: const TextStyle(
                                   fontSize: 16,
                                   color: Colors.green,

@@ -1,8 +1,7 @@
 import 'package:apistore_app/packages/packages.dart';
 
-
 class Product extends Equatable {
-  const Product({
+  Product({
     required this.id,
     required this.title,
     required this.price,
@@ -12,12 +11,12 @@ class Product extends Equatable {
     required this.rating,
   });
 
-  final int id;
-  final String title;
-  final double price;
-  final String description;
-  final String category;
-  final String image;
+  final int? id;
+  final String? title;
+  final double? price;
+  final String? description;
+  final String? category;
+  final String? image;
   final Rating? rating;
 
   Product copyWith({
@@ -42,27 +41,15 @@ class Product extends Equatable {
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
-      id: json["id"] ?? 0,
-      title: json["title"] ?? "",
-      price:
-          (json["price"] as num?)?.toDouble() ??
-          0.0, 
-      description: json["description"] ?? "",
-      category: json["category"] ?? "",
-      image: json["image"] ?? "",
+      id: json["id"],
+      title: json["title"],
+      price: (json["price"] as num?)?.toDouble(),
+      description: json["description"],
+      category: json["category"],
+      image: json["image"],
       rating: json["rating"] == null ? null : Rating.fromJson(json["rating"]),
     );
   }
-
-  Map<String, dynamic> toJson() => {
-    "id": id,
-    "title": title,
-    "price": price,
-    "description": description,
-    "category": category,
-    "image": image,
-    "rating": rating?.toJson(),
-  };
 
   @override
   String toString() {
@@ -82,10 +69,10 @@ class Product extends Equatable {
 }
 
 class Rating extends Equatable {
-  const Rating({required this.rate, required this.count});
+  Rating({required this.rate, required this.count});
 
-  final double rate;
-  final int count;
+  final double? rate;
+  final int? count;
 
   Rating copyWith({double? rate, int? count}) {
     return Rating(rate: rate ?? this.rate, count: count ?? this.count);
@@ -93,14 +80,10 @@ class Rating extends Equatable {
 
   factory Rating.fromJson(Map<String, dynamic> json) {
     return Rating(
-      rate:
-          (json["rate"] as num?)?.toDouble() ??
-          0.0, 
-      count: json["count"] ?? 0,
+      rate: (json["rate"] as num?)?.toDouble(),
+      count: (json["count"] as num?)?.toInt(),
     );
   }
-
-  Map<String, dynamic> toJson() => {"rate": rate, "count": count};
 
   @override
   String toString() {

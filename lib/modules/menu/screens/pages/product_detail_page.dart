@@ -26,7 +26,7 @@ class ProductDetailPage extends StatelessWidget {
           } else if (state is ProductDetailLoaded) {
             final Product product = state.product;
             return Scaffold(
-              appBar: AppBar(title: Text(product.title)),
+              appBar: AppBar(title: Text(product.title ?? 'Product Detail')),
               body: ProductDetailContent(product: product),
             );
           }
